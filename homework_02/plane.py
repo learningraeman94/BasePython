@@ -14,7 +14,5 @@ class Plane(Vehicle):
 
     def load_cargo(self, weigth: int):
         if (self.cargo + weigth) > self.max_cargo:
-            raise CargoOverload()
+            raise CargoOverload
         pass
-
-    pass

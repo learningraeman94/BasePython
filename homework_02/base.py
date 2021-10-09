@@ -12,8 +12,6 @@ class Vehicle(ABC):
         self.weight = weight
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
-        super().__init__()
-        pass
 
     def start(self):
         """
@@ -24,17 +22,17 @@ class Vehicle(ABC):
             if self.fuel > 0:
                 self.started = True
             else:
-                raise LowFuelError()
+                raise LowFuelError
 
     def move(self, distance: float):
         """
         Проверяет, что достаточно топлива для преодоления переданной дистанции,
         и изменяет количество оставшегося топлива, иначе выкидывает исключение exceptions.NotEnoughFuel
         """
-        # расход топлива расчитываFется в л на 100 км
+        # расход топлива расчитывается в л на 100 км
         # т.е. мне нужно посчитать сколько я потрачу литров на указанную дистанцию
         wasted_fuel = distance * (self.fuel_consumption / 100)
         if self.fuel - wasted_fuel < 0:
-            raise NotEnoughFuel()
+            raise NotEnoughFuel
         self.fuel -= wasted_fuel
         return True
