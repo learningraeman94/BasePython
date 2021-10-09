@@ -10,5 +10,3 @@ class Car(Vehicle):
 
     def set_engine(self, e: Engine):
         self.engine = e
-
-    pass
