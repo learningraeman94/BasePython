@@ -20,5 +20,6 @@ class Plane(Vehicle):
         self.cargo = self.cargo + weigth
     
     def remove_all_cargo(self):
-        self.cargo = self.__init_cargo
-        return self.cargo
+        temp = self.cargo
+        self.cargo = 0
+        return temp
