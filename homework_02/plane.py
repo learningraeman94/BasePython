@@ -21,3 +21,4 @@ class Plane(Vehicle):
     
     def remove_all_cargo(self):
         self.cargo = self.__init_cargo
+        return self.cargo
