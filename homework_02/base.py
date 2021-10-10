@@ -6,6 +6,7 @@ class Vehicle(ABC):
     started: bool = False
     weight: int = 910
     fuel: int = 30
+    #? непонятно... расход каких-то условных единицах вычисляется...
     fuel_consumption: int = 5
 
     def __init__(self, weight: int, fuel: int, fuel_consumption: int) -> None:
@@ -29,9 +30,7 @@ class Vehicle(ABC):
         Проверяет, что достаточно топлива для преодоления переданной дистанции,
         и изменяет количество оставшегося топлива, иначе выкидывает исключение exceptions.NotEnoughFuel
         """
-        # расход топлива расчитывается в л на 100 км
-        # т.е. мне нужно посчитать сколько я потрачу литров на указанную дистанцию
-        wasted_fuel = distance * (self.fuel_consumption / 100)
+        wasted_fuel = distance * self.fuel_consumption
         if self.fuel - wasted_fuel < 0:
             raise NotEnoughFuel
         self.fuel -= wasted_fuel
